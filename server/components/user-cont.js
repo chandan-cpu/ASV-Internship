@@ -146,5 +146,6 @@ const login = async (req, res) => {
     });
   }
 }
+const profile=async(req,res)=>{}
 
-module.exports={registerUser,verifyEmail,login}
+module.exports={registerUser,verifyEmail,login,profile}
