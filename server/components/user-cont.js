@@ -104,7 +104,6 @@ const login = async (req, res) => {
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
-
     console.log(isMatch);
 
     if (!isMatch) {
@@ -146,6 +145,53 @@ const login = async (req, res) => {
     });
   }
 }
-const profile=async(req,res)=>{}
+const profile=async(req,res)=>{
+  try{
+    console.log("Reached at profile level");
+    const user=await User.findById(req.user.id).select('-password');
+    console.log(user);
+    if(!user)
+    {
+      return res.status(404).json({
+        success:false,
+        message:"User not found"
+      })
+    }
 
-module.exports={registerUser,verifyEmail,login,profile}
+    return res.status(200).json({
+      success:true,
+      user
+    })
+  } catch(err)
+  {
+    console.log("Profile error:",err);
+    return res.status(500).json({
+      success:false,
+      message:"Server error"
+    })
+
+  }
+}
+
+const logoutUser=async(req,res)=>{
+
+  try {
+    res.cookie('token','',{
+      httpOnly:true,
+      //cookie will be removed immediately
+      expires:new Date(0)
+    });
+    res.status(200).json({
+      success:true,
+      message:"Logged out successfully"
+    })
+  } catch (error) {
+    console.log("Logout error:",error);
+    res.status(500).json({
+      success:false,
+      message:"Server error"
+    })  
+  }
+}
+
+module.exports={registerUser,verifyEmail,login,profile,logoutUser}
