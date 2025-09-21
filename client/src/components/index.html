@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Balls Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            max-width: 600px;
+        }
+        
+        h1 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .balls-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation-name: float;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-20px) translateX(20px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(0);
+            }
+        }
+        
+        /* Different ball sizes, colors and animations */
+        .ball:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.6);
+            top: 10%;
+            left: 20%;
+            animation-duration: 15s;
+            animation-delay: 0s;
+        }
+        
+        .ball:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 215, 0, 0.5);
+            top: 60%;
+            left: 70%;
+            animation-duration: 18s;
+            animation-delay: 1s;
+        }
+        
+        .ball:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 69, 0, 0.6);
+            top: 30%;
+            left: 50%;
+            animation-duration: 12s;
+            animation-delay: 0.5s;
+        }
+        
+        .ball:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 128, 128, 0.5);
+            top: 70%;
+            left: 10%;
+            animation-duration: 16s;
+            animation-delay: 2s;
+        }
+        
+        .ball:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            background: rgba(128, 0, 128, 0.5);
+            top: 20%;
+            left: 80%;
+            animation-duration: 14s;
+            animation-delay: 1.5s;
+        }
+        
+        .ball:nth-child(6) {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 255, 127, 0.5);
+            top: 50%;
+            left: 40%;
+            animation-duration: 17s;
+            animation-delay: 2.5s;
+        }
+        
+        .ball:nth-child(7) {
+            width: 110px;
+            height: 110px;
+            background: rgba(30, 144, 255, 0.5);
+            top: 15%;
+            left: 5%;
+            animation-duration: 20s;
+            animation-delay: 0.7s;
+        }
+        
+        .ball:nth-child(8) {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 105, 180, 0.6);
+            top: 65%;
+            left: 60%;
+            animation-duration: 13s;
+            animation-delay: 3s;
+        }
+        
+        .ball:nth-child(9) {
+            width: 130px;
+            height: 130px;
+            background: rgba(0, 255, 255, 0.4);
+            top: 40%;
+            left: 85%;
+            animation-duration: 19s;
+            animation-delay: 1.2s;
+        }
+        
+        .ball:nth-child(10) {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 215, 0, 0.6);
+            top: 80%;
+            left: 30%;
+            animation-duration: 11s;
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="balls-container">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div>
+    
+    <div class="container">
+        <h1>Floating Balls Background</h1>
+        <p>This background features animated floating balls with different sizes, colors and movement patterns. The effect is created using pure CSS with keyframe animations.</p>
+        <p>Feel free to use this as a background for your website or application!</p>
+    </div>
+</body>
+</html>
