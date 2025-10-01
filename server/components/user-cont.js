@@ -8,8 +8,9 @@ const nodemailer=require('nodemailer');
 
 
 const registerUser=async(req,res)=>{
+  console.log("Reached at register user level");
     try{
-        const {name,email,password,role,specialty,servicesOffered,phoneNumber}=req.body;  
+        const {name,email,password,role,specialty,servicesOffered,phoneNumber,salonServices,experience,consultancyAreas,hourlyRate,bio}=req.body;  
         // check the user already exists 
         let existUser=await User.findOne({email:email});
         if(existUser){
@@ -24,6 +25,11 @@ const registerUser=async(req,res)=>{
             specialty,
             servicesOffered,
             phoneNumber,
+            salonServices,
+            experience,
+            consultancyAreas,
+            hourlyRate,
+            bio
             // tokenExpiry:user.tokenExpiry
         });
         // console.log("creating user")
