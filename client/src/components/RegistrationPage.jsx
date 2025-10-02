@@ -1,4 +1,4 @@
-// GenericRegistrationPage.jsx
+
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import api from './axios'
@@ -14,7 +14,7 @@ const RegistrationPage = () => {
     name: '',
     email: '',
     password: '',
-    role: 'User',
+    role: 'user', // Default role
     // Doctor-specific fields
     specialty: '',
     servicesOffered: [],
@@ -40,25 +40,16 @@ const RegistrationPage = () => {
   ];
 
   const roles_salon=[
-    { value: 'Customer', label: 'Client' },
+    { value: 'customer', label: 'Client' },
     { value: 'salon', label: 'Salon Professional' },
 
   ];
 
   const roles_consultancy=[
-    { value: 'Client', label: 'Client' },
+    { value: 'client', label: 'Client' },
     { value: 'consultant', label: 'Consultant' },
 
   ];
-  // if(serviceType==='healthcare'){
-  //   var roles=roles_healthCare;
-  // }else if(serviceType==='salon'){
-  //   var roles=roles_salon;
-  // }
-  // else if(serviceType==='consultancy')
-  // {
-  //   var roles=roles_consultancy;
-  // }
 const roles=serviceType==='healthcare'?roles_healthCare:(serviceType==='salon'?roles_salon:roles_consultancy);
   // Available specialties for doctors
   const doctorSpecialties = [
@@ -505,7 +496,9 @@ const handleSubmit = async (e) => {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                navigate('/login');
+                navigate('/login', { state: { fromRegistration: true ,
+                serviceType: serviceType
+                }});
               }}
               style={{ pointerEvents: isSubmitting ? 'none' : 'auto' }}
             >
@@ -514,6 +507,7 @@ const handleSubmit = async (e) => {
           </div>
         </form>
       </div>
+      {/* <p>{console.log(formData.role)}</p> */}
     </div>
   );
 };

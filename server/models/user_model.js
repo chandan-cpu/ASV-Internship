@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, enum: ['patient', 'doctor', 'admin', 'serviceProvider'], default: 'user' },//'serviceProvider' can be a doctor, stylist, consultant etc.
+    role: { type: String, enum: ['patient', 'doctor', 'admin', 'serviceProvider','client','customer','salon','consultant','user'], default: 'user' },//'serviceProvider' can be a doctor, stylist, consultant etc.
     specialty: { type: String }, // For doctors or service providers
     servicesOffered: [{ type: String }], // For salons, general consultants
     // ... other profile fields
